@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	height: 100%;
+	color: white;
+}
+
+
+/**************   welcome section  ********************/
+
+.welcome{
+	position: fixed;
+  	left: 0;
+  	top: 0;
+  	height: 92%;
+  	width: 100%;
+	font-family: sans-serif;
+	background-color: #000000;
+	background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+/**************    Footer section   ********************/
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #86C232;
+  color: white;
+  text-align: center;
+  height: 8%;
+}
