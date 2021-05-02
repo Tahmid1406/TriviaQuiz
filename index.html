@@ -26,7 +26,7 @@
 	<section class="welcome">
 		<div class="container welcome-box">
 			<h1>Welcome To TRIVQUIZ </h1>
-			<h6>Maximize your points by choosing the correct answer from the option. Wrong asnwer stops the game. Best of luck!!</h6>
+			<h6>Maximize your points by choosing the correct answer from the options. Wrong asnwer stops the game. Best of luck!!</h6>
 		</div>
 	</section>
 
@@ -37,13 +37,13 @@
 	<!-------------------  Game info section      ----------------->
 	
 
-	<section class="game-info-area">
+	<section class="game-info-area hide">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8 start-game">
-					<button class="btn btn-primary">CLICK TO START</button>
-					<h4>Click to start the game. </h4>
+					<button class="btn btn-primary"><span>CLICK TO START</span></button>
+					<h4 class="glow">Click the button to start the game. </h4>
 				</div>
 				<div class="col-md-2"></div>	
 			</div>
@@ -52,16 +52,113 @@
 
 
 
+	<!-------------------  Box Containing quizes     ----------------->
+
+
+
+
+    <section class="game-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 question-container">
+					<div class="row question-tracker-wrapper">
+						<div class="col-md-8">
+							<div class="question-no">
+								<span>Question 1</span>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="right-ans-wrapper">
+								<div class="right-ans-tracker"></div>
+								<div class="right-ans-text">Current Point</div>	
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="question">
+						<h4>What is the capital of Bangladesh?</h4>
+					</div>
+					<div class="options">
+						<div class="row">
+							<div class="col-md-1">
+								<div class="opt-text">A. </div>
+							</div>
+							<div class="col-md-11">
+								<div class="opt">Dhaka</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-1">
+								<div class="opt-text">B. </div>
+							</div>
+							<div class="col-md-11">
+								<div class="opt">Chottogram</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-1">
+								<div class="opt-text">C. </div>
+							</div>
+							<div class="col-md-11">
+								<div class="opt">Rajshahi</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-1">
+								<div class="opt-text">D. </div>
+							</div>
+							<div class="col-md-11">
+								<div class="opt">Khulna</div>
+							</div>
+						</div>
+					</div>
+					<div class="check-btn">
+						<button type="button" class="btn btn-check">CHECK</button>
+					</div>
+				</div>
+				<div class="col-md-2"></div>	
+			</div>
+	</section>
+
+
+
+
+	 <!-----------------------  Quiz Result    ----------------------->
+
+
+	 <section class="results hide">
+	 	<div class="container">
+	 		<div class="row">
+	 			<div class="col-md-2"></div>
+	 			<div class="col-md-8 quiz-result">
+	 				<h2>You have answered x questions!</h2>
+	 				<div class="result-button-wrapper">
+						<button class="btn button-1">TRY AGAIN</button>
+						<button class="btn button-2">HOMEPAGE</button>	
+					</div>
+	 			</div>
+	 			<div class="col-md-2"></div>
+	 		</div>
+	 	</div>
+	 </section>
 
 
     <!-----------------------  The Footer    ----------------------->
 
 
-	<section class="footer-section">
+	<section class="footer-section hide">
 		<div class="footer">
   			<p>Footer</p>
 		</div>	
 	</section>
+
+<script type="text/javascript" src="javascript/question.js"></script>
+<script type="text/javascript" src="javascript/app.js"></script>
 
 </body>
 </html>
