@@ -3,37 +3,79 @@
 	padding: 0;
 	box-sizing: border-box;
 	outline: none;
-	height: 100%;
-	color: white;
 }
 
 
 /**************   welcome section  ********************/
 
-.welcome{
-	position: fixed;
-  	left: 0;
-  	top: 0;
-  	height: 92%;
+section.welcome{
   	width: 100%;
 	font-family: sans-serif;
-	background-color: #000000;
-	background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+	background-color: #2B7A78;
+	background-image: linear-gradient(147deg, #2B7A78 0%, #3AAFA9 74%);
 	background-repeat: no-repeat;
     background-attachment: fixed;
+    color: #FEFFFF;
+}
+
+
+section.welcome h1{
+	text-align: center;
+	color: #FEFFFF;
+	padding: 25px  0 15px 0;
+}
+
+section.welcome h6{
+	text-align: center;
+	color: #FEFFFF;
+	padding-bottom: 20px;
+}
+
+
+/**************   welcome section  ********************/
+
+
+div.start-game{
+	font-family: sans-serif;
+	background-color: #D1E8E2;
+    color: #EDF5E1;
+    text-align: center;
+    box-shadow:  0 0 10px  rgba(0,0,0,0.6);
+      -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+      -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+    border-radius:8px;
+    margin: 20px 15px;
+}
+
+div.start-game h4{
+	font-family: sans-serif;
+	text-align: center;
+	margin: 40px auto;
+	color : #17252A;
+}
+
+div.start-game button{
+	font-family: sans-serif;
+	text-align: center;
+	margin: 30px auto;
 }
 
 
 
-/**************    Footer section   ********************/
+
+/**************    The Footer   ********************/
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #86C232;
-  color: white;
+  font-family: sans-serif;
+  background-color: #2B7A78;
+  background-image: linear-gradient(147deg, #2B7A78 0%, #3AAFA9 74%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   text-align: center;
-  height: 8%;
+  color: #FEFFFF;
 }
