@@ -6,12 +6,17 @@ const questionNo = document.querySelector('.question-no');
 const qText = document.querySelector('.question');
 
 
+//options fro the question
+const option = document.querySelector('.option-container');
+
+
 // variables for counting remaining, already done and current question
 
 
 let quesCounter = 0;
 let currentQues ;
 let stillAvailable = [];
+let questionList = [];
 
 
 
@@ -40,7 +45,7 @@ function setAvailableQues(){
 	const qNo = questions.length;
 
 	for(let i=0; i<qNo; i++){
-		//stillAvailable.push(questions[i]);
+		questionList.push(questions[i]);
 		stillAvailable[i] = true;
 	}
 }
@@ -64,25 +69,45 @@ function setNewRandomQues(){
 	// 2. Generate new random ques and update html
 	// 3. make the existance of available question index
 
-	questionNo.innerHTML = "Question " + (quesCounter + 1);
-	quesCounter++;
+	option.innerHTML = '';
 
+	questionNo.innerHTML = "Question " + (quesCounter + 1);
 	var uniqueFinder = true;
 	while(uniqueFinder){
 		const ind = Math.abs(Math.floor(Math.random() * 5));
 		if(stillAvailable[ind] === true){
-			qText.innerHTML = questions[ind];
+			currentQues = questionList[ind];
+			qText.innerHTML = currentQues.ques;
 			stillAvailable[ind] = false;
 			uniqueFinder = false;	
 			
-			console.log(ind);
-			console.log(stillAvailable);	
+			console.log(ind+1);
+			// console.log(stillAvailable);
+			// console.log(currentQues.option);
+			// console.log(currentQues.answer);	
 		}
 	}
+
+	for(let i=0; i<4; i++){
+		const opt = document.createElement("div");
+		opt.innerHTML = currentQues.option[i];
+		opt.id = i;
+		opt.className = "opt";
+		option.appendChild(opt);	
+	}
+	
+	// for(let i=0; i<4; i++){
+	// 	const option = document.createElement('div');
+	// 	option.innerHTML = 
+	// }
+	quesCounter++;
+
 }
 
 
 
+
+// for the next button in game area
 function nextQues(){
 	if(quesCounter === questions.length){
 		console.log("Quiz ends");
@@ -90,6 +115,9 @@ function nextQues(){
 		setNewRandomQues();
 	}
 }
+
+
+
 
 
 window.onload = function(){
