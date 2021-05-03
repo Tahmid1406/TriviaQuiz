@@ -20,24 +20,24 @@ let questionList = [];
 
 
 
-// // random option array for answers
-// var loop = true;
+// random option array for answers
+var loop = true;
 
-// var random_order = [6,6,6,6];
+var random_order_options = [true,true,true,true];
 
-// var found_count = 0;
-// while(loop){
-// 	if(found_count == 4) break;
-// 	var random_option = Math.floor(Math.random() * 4);
-// 	if(random_order.indexOf(random_option) == -1){
-// 		random_order[found_count] = random_option;
-// 		found_count++;
-// 	}else{
-// 		continue;
-// 	}
-// }
+var found_count = 0;
+while(loop){
+	if(found_count === 4) break;
+	var random_option = Math.floor(Math.random() * 4);
+	if(random_order_options.indexOf(random_option) == -1){
+		random_order_options[found_count] = random_option;
+		found_count++;
+	}else{
+		continue;
+	}
+}
 
-// console.log(random_order)
+// console.log(random_order_options)
 
 
 
@@ -82,26 +82,32 @@ function setNewRandomQues(){
 			uniqueFinder = false;	
 			
 			console.log(ind+1);
-			// console.log(stillAvailable);
-			// console.log(currentQues.option);
-			// console.log(currentQues.answer);	
 		}
 	}
 
 	for(let i=0; i<4; i++){
 		const opt = document.createElement("div");
-		opt.innerHTML = currentQues.option[i];
-		opt.id = i;
+		opt.id = random_order_options[i];
+		opt.innerHTML = currentQues.option[random_order_options[i]];
 		opt.className = "opt";
-		option.appendChild(opt);	
+		option.appendChild(opt);
+		opt.setAttribute("onclick", "getClicked(this)");	
 	}
 	
-	// for(let i=0; i<4; i++){
-	// 	const option = document.createElement('div');
-	// 	option.innerHTML = 
-	// }
 	quesCounter++;
 
+}
+
+
+// get the id of the div that was clicked
+function getClicked(clickedElement){
+	const id = parseInt(clickedElement.id);
+
+	if (id === currentQues.answer) {
+		console.log("correct");
+	}else{
+		console.log("wrong");
+	}
 }
 
 
