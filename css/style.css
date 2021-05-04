@@ -22,7 +22,7 @@ section.welcome{
 section.welcome h1{
 	text-align: center;
 	color: #FEFFFF;
-	padding: 25px  0 15px 0;
+	padding: 25px  0 5px 0;
 }
 
 section.welcome h6{
@@ -61,14 +61,13 @@ div.start-game button{
     border: solid 3px #66FCF1;
     border-radius: 20px;
     cursor: pointer;
-    pointer-events: none;
     font-weight: 30px;
 }
 
 
 
-div.start-game button span{
-	padding: 1.3em;
+div.start-game button{
+	padding: 18px;
 	border-radius: 17px;
 }
 
@@ -115,55 +114,33 @@ section.game-area .question-container{
       -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
     border-radius:8px;
-    margin: 20px 15px;
+    margin: 20px 20px;
     color: #FEFFFF;
 }
 
 
-section.game-area .question-tracker-wrapper{
-	border-bottom: solid 2px #FEFFFF;
-	line-height: 10px;
-}
 
-section.game-area .question-no{
-	margin: 20px 20px;
-	margin-top: 45px;
-	margin-bottom: 55px;
+section.game-area .correct-ans{
 	font-family: sans-serif;
     font-size: 30px;
-    font-weight: 450;	
+    font-weight: 450;
+    margin: 20px 20px;
 }
 
-section.game-area .right-ans-tracker{
-	margin: 20px 20px;
-	margin-bottom: 10px;
-	margin-right: 35px;
-	background-color: #E8A87C;
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-weight: 350;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    float: right;
-   
-}
 
-section.game-area .right-ans-text{
-	float: right;
-	clear: right;
-	color: #FEFFFF;
-}
+
 
 section.game-area .question{
+	font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 450;
 	margin: 20px 20px;
 }
 
-section.game-area .options{
- margin: 20px 20px;
-}
 
-section.game-area .options .opt{
+
+.opt{
+	margin: 12px 20px;
 	background-color: #E8A87C;
 	line-height: 20px;
 	font-size: 18px;
@@ -182,6 +159,8 @@ section.game-area .options .opt-text{
 
 section.game-area .check-btn{
 	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 15px; 
 }
 
 
@@ -280,6 +259,44 @@ section.results .button-2{
 
 
 
+/*****   CSS classes added by the JS function calls  *****/
+
 .hide{
 	display: none;
+}
+
+.green{
+	margin: 12px 20px;
+	line-height: 20px;
+	font-size: 18px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 18px;
+	cursor: pointer;
+	color: #FEFFFF;
+	background-color: #56b543;
+	background-image: linear-gradient(147deg, #56b543 0%, #3dde1d 74%);
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	z-index: -1;
+}
+
+.red{
+	margin: 12px 20px;
+	line-height: 20px;
+	font-size: 18px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 18px;
+	cursor: pointer;
+	color: #FEFFFF;
+	background-color: #d92121;
+	background-image: linear-gradient(147deg, #d92121 0%, #fc6262 74%);
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	z-index: -1;
+}
+
+.answering-finished{
+	pointer-events: none;
 }

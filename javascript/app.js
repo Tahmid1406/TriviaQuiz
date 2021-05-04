@@ -2,9 +2,10 @@
 
 // variables for quiz question innerHTML setter
 
-const questionNo = document.querySelector('.question-no');
+const questionNo = document.querySelector('.correct-ans');
 const qText = document.querySelector('.question');
-
+const startGameSection = document.querySelector('.game-info-area');
+const gameArea = document.querySelector('.game-area');
 
 //options fro the question
 const option = document.querySelector('.option-container');
@@ -71,7 +72,7 @@ function setNewRandomQues(){
 
 	option.innerHTML = '';
 
-	questionNo.innerHTML = "Question " + (quesCounter + 1);
+	questionNo.innerHTML = "Correct Answers : " + (quesCounter);
 	var uniqueFinder = true;
 	while(uniqueFinder){
 		const ind = Math.abs(Math.floor(Math.random() * 5));
@@ -102,15 +103,33 @@ function setNewRandomQues(){
 // get the id of the div that was clicked
 function getClicked(clickedElement){
 	const id = parseInt(clickedElement.id);
-
 	if (id === currentQues.answer) {
 		console.log("correct");
+		clickedElement.classList.add('green');
+		//making other options unclickable
+		disableOtherOptions();
+		setTimeout(function() {
+			nextQues();
+		}, 1500);
+		
 	}else{
-		console.log("wrong");
+		clickedElement.className = "red";
+		//making other options unclickable
+		disableOtherOptions();
 	}
+
+	
 }
 
 
+
+//making other options unclickable
+function disableOtherOptions(){
+	const len = option.children.length;
+	for(i=0; i<len; i++){
+		option.children[i].classList.add('answering-finished');
+	}
+}
 
 
 // for the next button in game area
@@ -125,14 +144,38 @@ function nextQues(){
 
 
 
+function startGame(){
+	const running = true;
+	gameArea.classList.remove('hide');
+	startGameSection.classList.add('hide');
+	setAvailableQues();
+	setNewRandomQues();
+	// while(running){
+	// 	setNewRandomQues();	
+	// }
+	
+}
+
 
 window.onload = function(){
 
 	// 1. push all questions to available question
 	// 2. set a new question (available, random) to the game area
 	
-	setAvailableQues();
+	gameArea.classList.add('hide');
 
-	setNewRandomQues();
+}
 
+
+
+
+function die(reason) {
+    throw new Error(reason);
+}
+
+
+
+// a test function
+function hi(){
+	console.log('hi');
 }
