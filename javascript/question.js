@@ -130,15 +130,90 @@ const questions = [
 	},
 
 	{
-		ques : 'Question Extra',
-		option : ["option Extra", "option2", "option3", "option4"],
+		ques : 'The Panama Canal connects',
+		option : ["Atlantic Ocean and Pacific Ocean", "Atlantic Ocean and Arctic", 
+		         "Arctic Ocean and Antarctic Ocean", "Pacific Ocean and Arctic Ocean"],
+		answer : 0
+	},
+
+	{
+		ques : 'Islands is often referred to as',
+		option : ["atolls", "tributaries", "islets", "archipelagos"],
+		answer : 2
+	},
+
+	{
+		ques : 'The Pico Island is located at',
+		option : ["Switzerland", "Portugal", "Turkey", "Egypt"],
+		answer : 1
+	},
+
+	{
+		ques : 'The Sultan Ahmed Mosque in Istanbul is popularly known as the',
+		option : ["Green Mosque", "Blue Mosque", "Red Mosque", "Yellow Mosque"],
+		answer : 1
+	},
+
+	{
+		ques : 'The oldest of the ancient 7 wonders of the world, Giza, is located at',
+		option : ["Egypt", "Portugal", "Switzerland", "Turkey"],
+		answer : 0
+	},
+
+	{
+		ques : 'Lake Lucerne is located at',
+		option : ["Egypt", "Portugal", "Switzerland", "Turkey"],
+		answer : 2
+	},
+
+	{
+		ques : 'Which city is also called The City of 1,000 Minarets?',
+		option : ["Istanbul", "Cairo", "Makkah", "Islamabad"],
+		answer : 1
+	},
+
+	{
+		ques : 'The South Pole of the Earth is located in',
+		option : ["Norway", "Antarctica", "Arctic Ocean", "Pacific Ocean"],
+		answer : 1
+	},
+
+	{
+		ques : 'The North Pole of the Earth is located in',
+		option : ["Norway", "Antarctica", "Arctic Ocean", "Pacific Ocean"],
+		answer : 2
+	},
+
+	{
+		ques : 'Which statement is true about Poles of the Earth?',
+		option : ["South Pole is warmer", "North Pole is warmer", 
+		        "Both poles have equal temperature", "Both poles lie in the Ocean"],
+		answer : 1
+	},
+
+	{
+		ques : 'The Sinai Peninsula is located in',
+		option : ["Egypt", "Portugal", "Switzerland", "Turkey"],
 		answer : 0
 	}
 
 ];
 
+	
+
+	
 
 
+	
+
+
+    
+
+	
+
+	
+
+	
 
 
 

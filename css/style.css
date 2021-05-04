@@ -246,25 +246,6 @@ section.results .button-2{
 
 
 
-/**************    The Footer   ********************/
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  font-family: sans-serif;
-  background-color: #2B7A78;
-  background-image: linear-gradient(147deg, #2B7A78 0%, #3AAFA9 74%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  text-align: center;
-  color: #FEFFFF;
-}
-
-
-
-
 
 /*****   CSS classes added by the JS function calls  *****/
 

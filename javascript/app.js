@@ -1,6 +1,21 @@
 
 
-// variables for quiz question innerHTML setter
+// a test function
+function hi(){
+	console.log('hi');
+}
+
+
+//window onload function
+window.onload = function(){
+	
+	gameArea.classList.add('hide');
+
+}
+
+
+
+// variables for inner HTML manipulations
 
 const questionNo = document.querySelector('.correct-ans');
 const qText = document.querySelector('.question');
@@ -9,19 +24,44 @@ const gameArea = document.querySelector('.game-area');
 const resultArea = document.querySelector('.results');
 const resultAreaText = document.querySelector('.quiz-result-text');
 
+
 //options for the question
 const option = document.querySelector('.option-container');
 
 
-// variables for counting remaining, already done and current question
+// correct answer counter
+let correctCount = 0;
 
-
-let quesCounter = 0;
+// variable that tracks the current question
 let currentQues ;
+
+//array that stores which questions already appeared
+//stopping questions to appear more than once
 let stillAvailable = [];
+
+
+//stores question with original index before randomizing
 let questionList = [];
 
 
+
+
+
+// preparing the question list and availability array before randomizing
+function setAvailableQues(){
+	const qNo = questions.length;
+
+	for(let i=0; i<qNo; i++){
+		questionList.push(questions[i]);
+		stillAvailable[i] = true;
+	}
+}
+
+
+
+
+
+// ***************** Random option generator ****************//
 
 // random option array for answers
 var loop = true;
@@ -40,18 +80,8 @@ while(loop){
 	}
 }
 
-// console.log(random_order_options)
 
 
-
-function setAvailableQues(){
-	const qNo = questions.length;
-
-	for(let i=0; i<qNo; i++){
-		questionList.push(questions[i]);
-		stillAvailable[i] = true;
-	}
-}
 
 // function uniqueRandom(){
 // 	const randomQIndex = Math.abs(Math.floor(Math.random() * 5));
@@ -67,17 +97,21 @@ function setAvailableQues(){
 
 // }
 
+
+
+
+// random question with their option also being random
 function setNewRandomQues(){
-	// 1. Change the question quesCounter
+	// 1. Change the question correctCount
 	// 2. Generate new random ques and update html
 	// 3. make the existance of available question index
 
 	option.innerHTML = '';
 
-	questionNo.innerHTML = "Correct Answers : " + (quesCounter);
+	questionNo.innerHTML = "Correct Answers : " + (correctCount);
 	var uniqueFinder = true;
 	while(uniqueFinder){
-		const ind = Math.abs(Math.floor(Math.random() * 5));
+		const ind = Math.abs(Math.floor(Math.random() * 20));
 		if(stillAvailable[ind] === true){
 			currentQues = questionList[ind];
 			qText.innerHTML = currentQues.ques;
@@ -100,20 +134,20 @@ function setNewRandomQues(){
 }
 
 
+
 // get the id of the div that was clicked
 function getClicked(clickedElement){
 
 	const id = parseInt(clickedElement.id);
 
 	if (id === currentQues.answer) {
-		quesCounter++;
-		console.log("correct");
+		correctCount++;
 		clickedElement.classList.add('green');
 		//making other options unclickable
 		disableOtherOptions();
 		setTimeout(function() {
 			nextQues();
-		}, 1500);
+		}, 1100);
 		
 	}else{
 		
@@ -136,20 +170,38 @@ function getClicked(clickedElement){
 
 			//showing the result div
 			resultArea.classList.remove('hide');
-			resultAreaText.innerHTML = "Not BAD!! <br> You Have Correctly Answered " + quesCounter + " Questions !!";
+			resultAreaText.innerHTML = "Not BAD!! <br> You Have Correctly Answered " + correctCount + " Questions !!";
 
-		}, 1500);		
+		}, 1100);		
 
 		
 		
 	}
-
 	
 }
 
 
 
-//making other options unclickable
+
+// function gets called only if answer correct
+function nextQues(){
+	if(correctCount === 20){
+	    //goint to the result div
+		gameArea.classList.add('hide');	
+		//showing the result div
+		resultArea.classList.remove('hide');
+		resultAreaText.innerHTML = "Congratulations!! <br> You Have Correctly Answered All The Questions";
+	}
+	else{
+		setNewRandomQues();
+	}
+}
+
+
+
+
+
+//making other options unclickable after clicking one asnwer
 function disableOtherOptions(){
 	const len = option.children.length;
 	for(i=0; i<len; i++){
@@ -158,24 +210,16 @@ function disableOtherOptions(){
 }
 
 
-// for the next button in game area
-function nextQues(){
-	if(quesCounter === questions.length){
-		console.log("Quiz ends");
-	}else{
-		setNewRandomQues();
-	}
-}
 
-
-
-
+// starts the game
 function startGame(){
-	const running = true;
+	correctCount = 0;
 	gameArea.classList.remove('hide');
 	startGameSection.classList.add('hide');
+	resultArea.classList.add('hide');
 	setAvailableQues();
 	setNewRandomQues();
+
 	// while(running){
 	// 	setNewRandomQues();	
 	// }
@@ -184,26 +228,14 @@ function startGame(){
 
 
 
+// try again button in results div
 function tryAgain() {
-	
+	startGame();
 }
 
+
+//return home button in results div
 function returnToHome(){
-
-}
-
-
-window.onload = function(){
-	
-	gameArea.classList.add('hide');
-
-}
-
-
-
-
-
-// a test function
-function hi(){
-	console.log('hi');
+	resultArea.classList.add('hide');
+	startGameSection.classList.remove('hide');
 }
