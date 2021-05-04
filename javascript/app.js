@@ -6,8 +6,10 @@ const questionNo = document.querySelector('.correct-ans');
 const qText = document.querySelector('.question');
 const startGameSection = document.querySelector('.game-info-area');
 const gameArea = document.querySelector('.game-area');
+const resultArea = document.querySelector('.results');
+const resultAreaText = document.querySelector('.quiz-result-text');
 
-//options fro the question
+//options for the question
 const option = document.querySelector('.option-container');
 
 
@@ -94,16 +96,17 @@ function setNewRandomQues(){
 		option.appendChild(opt);
 		opt.setAttribute("onclick", "getClicked(this)");	
 	}
-	
-	quesCounter++;
 
 }
 
 
 // get the id of the div that was clicked
 function getClicked(clickedElement){
+
 	const id = parseInt(clickedElement.id);
+
 	if (id === currentQues.answer) {
+		quesCounter++;
 		console.log("correct");
 		clickedElement.classList.add('green');
 		//making other options unclickable
@@ -113,9 +116,32 @@ function getClicked(clickedElement){
 		}, 1500);
 		
 	}else{
-		clickedElement.className = "red";
-		//making other options unclickable
+		
+		clickedElement.classList.add('red');
 		disableOtherOptions();
+
+		const len = option.children.length;
+			for(i=0; i<len; i++){
+				if(parseInt(option.children[i].id) === currentQues.answer){
+					option.children[i].classList.add('green');
+					disableOtherOptions();
+					break;
+				}
+			
+			}
+
+		setTimeout(function() {	
+			//goint to the result div
+			gameArea.classList.add('hide');	
+
+			//showing the result div
+			resultArea.classList.remove('hide');
+			resultAreaText.innerHTML = "Not BAD!! <br> You Have Correctly Answered " + quesCounter + " Questions !!";
+
+		}, 1500);		
+
+		
+		
 	}
 
 	
@@ -157,21 +183,23 @@ function startGame(){
 }
 
 
-window.onload = function(){
 
-	// 1. push all questions to available question
-	// 2. set a new question (available, random) to the game area
+function tryAgain() {
+	
+}
+
+function returnToHome(){
+
+}
+
+
+window.onload = function(){
 	
 	gameArea.classList.add('hide');
 
 }
 
 
-
-
-function die(reason) {
-    throw new Error(reason);
-}
 
 
 
