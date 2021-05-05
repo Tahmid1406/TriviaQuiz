@@ -136,6 +136,10 @@ function setNewRandomQues(){
 
 
 // get the id of the div that was clicked
+// three things can happen
+// 1. player answers zero
+// 2. player answers between 1 and 19
+// 3. player answers all 20 questions
 function getClicked(clickedElement){
 
 	const id = parseInt(clickedElement.id);
@@ -164,17 +168,29 @@ function getClicked(clickedElement){
 			
 			}
 
-		setTimeout(function() {	
-			//goint to the result div
-			gameArea.classList.add('hide');	
 
-			//showing the result div
-			resultArea.classList.remove('hide');
-			resultAreaText.innerHTML = "Not BAD!! <br> You Have Correctly Answered " + correctCount + " Questions !!";
+		// if correct ans is zero then different message
+		if(correctCount === 0){
+	        setTimeout(function() {	
+				//goint to the result div
+				gameArea.classList.add('hide');	
 
-		}, 1100);		
+				//showing the result div
+				resultArea.classList.remove('hide');
+				resultAreaText.innerHTML = "Sorry!! <br> You Scored A Zero. <br> Please Try Again.";
 
-		
+			}, 1100);					
+		}else if(correctCount > 0 && correctCount <20){
+				setTimeout(function() {	
+				//goint to the result div
+				gameArea.classList.add('hide');	
+
+				//showing the result div
+				resultArea.classList.remove('hide');
+				resultAreaText.innerHTML = "Not BAD!! <br> You Have Correctly Answered " + correctCount + " Questions !!";
+
+		    }, 1100);
+		}				
 		
 	}
 	
